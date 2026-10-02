@@ -1,5 +1,8 @@
 package model;
-public abstract class Product {
+
+import service.Discountable;
+
+public abstract class Product implements Discountable{
     private final int id;
     private String name;
     private double price;
@@ -27,11 +30,21 @@ public abstract class Product {
     }
 
     public abstract String getCategory();
+
     public final  double getPriceWithDiscount(double discountPercent) {
         if(discountPercent < 0 || discountPercent > 1) {
             throw new IllegalArgumentException("Скидка должна быть в диапозоне от 0 до 1");
         }
         return this.price * (1 - discountPercent);
+    }
+
+    @Override 
+    public final void applyDiscount(double percent) {
+        if(percent < 0 || percent > 1) {
+            throw new IllegalArgumentException("Скидка должна быть от 0 до 1");
+        } else {
+            setPrice(getPrice() * (1 - percent));
+        }
     }
 }
 
