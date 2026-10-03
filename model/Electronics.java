@@ -1,6 +1,8 @@
 package model;
 
-public class Electronics extends Product {
+import service.Shippable;
+
+public class Electronics extends Product implements Shippable {
     private int warrantyMonths;
 
     public Electronics(int id, String name, double price, int warrantyMonths) {
@@ -17,5 +19,10 @@ public class Electronics extends Product {
     @Override 
     public String getCategory() {
         return "Electronics";
+    }
+    
+    @Override
+    public double calculateShippingCost() {
+        return 100 + getPrice() * 0.01;
     }
 }

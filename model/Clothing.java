@@ -1,6 +1,8 @@
 package model;
 
-public class Clothing extends Product {
+import service.Returnable;
+
+public class Clothing extends Product implements  Returnable {
     private int size;
 
     public Clothing(int id, String name, double price, int size) {
@@ -17,5 +19,10 @@ public class Clothing extends Product {
     @Override 
     public String getCategory() {
         return "Clothing";
+    }
+
+    @Override
+    public String returnItem(String reason) {
+        return "Товар " + getName() + " возвращен. Причина: " + reason;
     }
 }
