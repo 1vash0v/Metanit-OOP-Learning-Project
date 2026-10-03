@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Order order1 = new Order();
 
-        Box<? super Product> box1 = new Box<>();
-        Box<? super Product> box2 = new Box<>();
+        Box<Product> box1 = new Box<>();
+        Box<Product> box2 = new Box<>();
         Electronics el1 = new Electronics(19, "Iphone", 199.9, 12);
         Electronics el2 = new Electronics(18, "Samsung", 160.9, 18);
 

@@ -5,7 +5,13 @@ public class Order {
     private final List<Box<? extends Product>> boxes = new ArrayList<>();
     private OrderStatus status = OrderStatus.NEW;
     
+    public Order() {
 
+    }
+    public Order(Order other) {
+        this.boxes.addAll(other.boxes);
+        this.status = other.status;
+    }
     public List<Box<? extends Product>> getBoxes() {
         return boxes;
     }
