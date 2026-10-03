@@ -19,5 +19,12 @@ public class Main {
         System.out.println(order1.getTotalPrice());
         System.out.println(order1.getBoxes().size());
         System.out.println(copyOrder.getBoxes().size());
+
+        Customer customer = new Customer("Nikita", "test@mail.ru", "123123123");
+        order1.setCustomer(customer);
+        System.out.println(order1.getCustomer().getContactInfo());
+        Customer customer3 = new Customer("Nikita", "test@mail.ru", "123123123");
+        System.out.println(customer.equals(customer3));
+        Customer customer2 = new Customer("", "@mail", "123");
     }
 }

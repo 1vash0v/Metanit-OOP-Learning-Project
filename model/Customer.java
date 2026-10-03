@@ -6,4 +6,7 @@ public record Customer(String name, String email, String phone) {
             throw new IllegalArgumentException("Все поля должны быть запонены корректно");
         }
     }
+    public String getContactInfo() {
+        return name + "<" + email + ">";
+    }
 }

@@ -4,13 +4,20 @@ import java.util.*;
 public class Order {
     private final List<Box<? extends Product>> boxes = new ArrayList<>();
     private OrderStatus status = OrderStatus.NEW;
-    
+    private Customer customer;
     public Order() {
 
     }
     public Order(Order other) {
         this.boxes.addAll(other.boxes);
         this.status = other.status;
+    }
+
+    public Customer getCustomer() {
+        return this.customer;
+    }
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
     public List<Box<? extends Product>> getBoxes() {
         return boxes;
