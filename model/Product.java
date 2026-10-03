@@ -46,5 +46,10 @@ public abstract class Product implements Discountable{
             setPrice(getPrice() * (1 - percent));
         }
     }
+    
+    @Override
+    public String toString() {
+        return getCategory() + "{id=" + getId() + ", name='" + getName() + "', price=" + getPrice() + "}";
+    }
 }
 

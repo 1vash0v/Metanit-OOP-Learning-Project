@@ -30,8 +30,8 @@ public class Main {
 
         List<Product> list = List.of(el1, el2, el3);
         System.out.println(ProductUtils.filterProductsByPrice(list, p -> p.getPrice() > 100).size());
-        System.out.println(ProductUtils.formatter(list, p -> "Новый объект - " + String.valueOf(p)));
-        ProductUtils.consumer(list, p -> System.out.println("Новое имя - " + p.getName()));
+        System.out.println(ProductUtils.formatter(list, p -> "Новый объект - " + p.toString()));
+        ProductUtils.consumer(list, p -> System.out.println(p.getCategory() + ":" + p.getName()));
 
     }
 }

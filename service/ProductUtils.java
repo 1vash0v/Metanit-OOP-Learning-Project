@@ -13,16 +13,18 @@ public class ProductUtils {
         }
         return result;
     }
-    public static List<Object> formatter(List<Product> items, Function<Product, Object> condition) {
-        List<Object> result = new ArrayList<>();
+
+    public static <R> List<R> formatter(List<Product> items, Function<Product, R> mapper) {
+        List<R> result = new ArrayList<>();
         for(Product item : items) {
-            result.add(condition.apply(item));
+            result.add(mapper.apply(item));
         }
         return result;
     }
+
     public static void consumer(List<Product> items, Consumer<Product> condition) {
         for(Product item : items) {
-            item.setName("Name - " + String.valueOf(item.getId()));
+            condition.accept(item);
         }
     }
 }
