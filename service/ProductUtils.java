@@ -27,4 +27,13 @@ public class ProductUtils {
             condition.accept(item);
         }
     }
+
+    public static Optional<Product> findFirst(List<Product> items, Predicate<Product> condition) {
+        for(Product item : items) {
+            if(condition.test(item)) {
+                return Optional.of(item);
+            }
+        }
+        return Optional.empty();
+    }
 }
