@@ -34,5 +34,6 @@ public class Main {
         System.out.println(ProductUtils.formatter(list, p -> "Новый объект - " + p.toString()));
         ProductUtils.consumer(list, p -> System.out.println(p.getCategory() + ":" + p.getName()));
         System.out.println(ProductUtils.findFirst(list, p -> p.getCategory() == "Books"));
+        System.out.println(ProductUtils.totalPrice(list));
     }
 }

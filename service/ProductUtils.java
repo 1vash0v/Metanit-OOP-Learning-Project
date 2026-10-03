@@ -36,4 +36,12 @@ public class ProductUtils {
         }
         return Optional.empty();
     }
+
+    public static double totalPrice(List<Product> items) {
+        double totalPrice = 0;
+        for(Product item : items) {
+            totalPrice += item.getPrice();
+        }
+        return totalPrice;
+    }
 }
