@@ -44,4 +44,21 @@ public class ProductUtils {
         }
         return totalPrice;
     }
+
+    public static String describeWithPattern(Product p) {
+        if(p instanceof Electronics e) {
+            return "Электроника с гарантией " + e.getWarrantyMonths();
+        } else if(p instanceof Book b) {
+            return "Книга автора " + b.getAuthor();
+        } else if(p instanceof Clothing c) {
+            return "Одежда размера " + c.getSize();
+        }
+        return "Неизвестный товар";
+    }
+    public static String descriveWithSwitch(Product p) {
+        return switch(p) {
+            case Electronics e -> "Электроника с гарантией " + e.getWarrantyMonths();
+            case Book b -> "Книга автора " + b.getAuthor();
+        };
+    }
 }
