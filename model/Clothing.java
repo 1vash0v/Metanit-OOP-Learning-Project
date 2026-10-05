@@ -2,7 +2,7 @@ package model;
 
 import service.Returnable;
 
-public class Clothing extends Product implements  Returnable {
+public final class Clothing extends Product implements  Returnable {
     private int size;
 
     public Clothing(int id, String name, double price, int size) {

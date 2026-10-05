@@ -12,12 +12,15 @@ public record Customer(String name, String email, String phone) {
         return name + "<" + email + ">";
     }
 
-    public class Cart {
+    public static class Cart {
         private List<Product> cart = new ArrayList<>();
-        
+        private Customer customer;
+        public Cart(Customer customer) {
+            this.customer = customer;
+        }
         public void addItem(Product product) {
             cart.add(product);
-            System.out.println(name + " добавил " + product.getName() + " в корзину");
+            System.out.println(customer.name() + " Добавил " + product.getName());
         }
 
         public List<Product> getCart() {

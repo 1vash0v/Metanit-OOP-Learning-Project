@@ -2,7 +2,7 @@ package model;
 
 import service.Shippable;
 
-public class Electronics extends Product implements Shippable {
+public final class Electronics extends Product implements Shippable {
     private int warrantyMonths;
 
     public Electronics(int id, String name, double price, int warrantyMonths) {

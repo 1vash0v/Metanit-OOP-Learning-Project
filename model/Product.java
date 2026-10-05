@@ -2,7 +2,7 @@ package model;
 
 import service.Discountable;
 
-public abstract class Product implements Discountable{
+public sealed abstract class Product implements Discountable permits Electronics, Book, Clothing{
     private final int id;
     private String name;
     private double price;
@@ -46,7 +46,7 @@ public abstract class Product implements Discountable{
             setPrice(getPrice() * (1 - percent));
         }
     }
-    
+
     @Override
     public String toString() {
         return getCategory() + "{id=" + getId() + ", name='" + getName() + "', price=" + getPrice() + "}";

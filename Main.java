@@ -1,4 +1,9 @@
 import model.*;
+import model.Order.OrderItem;
+import service.CardPayment;
+import service.CashPayment;
+import service.OnlineWallet;
+import service.PaymentMethod;
 import service.ProductUtils;
 
 import java.util.*;
@@ -8,7 +13,7 @@ public class Main {
 
         // Box<Product> box1 = new Box<>();
         // Box<Product> box2 = new Box<>();
-        // Electronics el1 = new Electronics(19, "Iphone", 199.9, 12);
+        Electronics el1 = new Electronics(19, "Iphone", 199.9, 12);
         // Electronics el2 = new Electronics(18, "Samsung", 1, 18);
         // Electronics el3 = new Electronics(18, "Samsung", 101, 18);
         // Book el4 = new Book(3, "Tail", 50, "Gaben");
@@ -36,15 +41,26 @@ public class Main {
         // System.out.println(ProductUtils.findFirst(list, p -> "Books".equals(p.getCategory())));
         // System.out.println(ProductUtils.totalPrice(list));
 
-        Runnable runnable1 = new Runnable() {
-            @Override 
-            public void run() {
-                System.out.println("Реализация анонимного класса");
-            }
-        };
-        new Thread(runnable1).start();
-        
-        Runnable runnable2 = () -> System.out.println("Реализация лямбды");
-        new Thread(runnable2).start();
+        // Runnable runnable1 = new Runnable() {
+        //     @Override 
+        //     public void run() {
+        //         System.out.println("Реализация анонимного класса");
+        //     }
+        // };
+        // new Thread(runnable1).start();
+
+        // Runnable runnable2 = () -> System.out.println("Реализация лямбды");
+        // new Thread(runnable2).start();
+
+        // OrderItem item1 = new OrderItem(el1, 20);
+        // System.out.println(item1.getPrice());
+        CashPayment p1 = new CashPayment(200);
+        CardPayment p2 = new CardPayment("22012 12312 1231132");
+        OnlineWallet p3 = new OnlineWallet("33121221");
+        List<PaymentMethod> list = List.of(p1, p2, p3);
+        for(PaymentMethod p : list) {
+            p.processPayment();
+        }
+
     }
 }
